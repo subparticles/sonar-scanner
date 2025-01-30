@@ -1,5 +1,7 @@
-FROM newtmitch/sonar-scanner:4.0
+FROM sonarsource/sonar-scanner-cli:11.1
 
-RUN apt-get update
-RUN sudo apt-get install -y python3-pip \
+USER root
+
+RUN dnf update && \
+	dnf install -y python3-pip \
 	&& pip3 install pylint
